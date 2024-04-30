@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY", "default_secret")
 # CORS(app, resources={r"/*": {"origins":"*"}}) # "https://persuasivechatbotapp.onrender.com"
 # CORS(app, resources={r"/compare_message": {"origins": "https://persuasivechatbotapp.onrender.com/"}})
 # cors = CORS(app , resources={r"/*": {"origins": "*", "allow_headers": "*", "expose_headers": "*"}})
-CORS(app, origins=["*"], supports_credentials=True)
+CORS(app, origins=["https://persuasivechatbotapp.onrender.com", "http://localhost:3000"], supports_credentials=True)
 
 # Define routes here, avoiding circular imports
 @app.route('/compare_message', methods=['POST'])
@@ -41,7 +41,10 @@ def compare_message_endpoint():
     
     response.headers.add("Access-Control-Allow-Origin", "*")
     response.headers.add("Access-Control-Allow-Headers", "*")
+    response.headers.add("Access-Control-Expose-Headers", "*")
     response.headers.add("Access-Control-Allow-Methods", "*")
+    response.headers.add("Access-Control-Allow-Credentials", True)
+
     print("sending back response from flask: ", response)
     return response
 # def compare_message_endpoint():

@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 # Configure Flask app
 app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY", "default_secret")
-CORS(app, resources={r"/*": {"origins":"https://persuasivechatbotapp.onrender.com"}}) # "https://persuasivechatbotapp.onrender.com"
+CORS(app, resources={r"/*": {"origins":"*"}}) # "https://persuasivechatbotapp.onrender.com"
 # CORS(app, resources={r"/compare_message": {"origins": "https://persuasivechatbotapp.onrender.com/"}})
 
 # Define routes here, avoiding circular imports

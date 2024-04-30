@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY", "default_secret")
 # CORS(app, resources={r"/*": {"origins":"*"}}) # "https://persuasivechatbotapp.onrender.com"
 # CORS(app, resources={r"/compare_message": {"origins": "https://persuasivechatbotapp.onrender.com/"}})
 # cors = CORS(app , resources={r"/*": {"origins": "*", "allow_headers": "*", "expose_headers": "*"}})
-CORS(app)
+CORS(app, origins=["*"], supports_credentials=True)
 
 # Define routes here, avoiding circular imports
 @app.route('/compare_message', methods=['POST'])

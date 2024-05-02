@@ -32,7 +32,7 @@ def compare_message_endpoint():
             print("no message provided!!")
             return jsonify({'error': 'No message provided'}), 400  # Handle missing message
         
-        similar_text = "test memory limitations"#compare_message(user_message)
+        similar_text = compare_message(user_message)# "test memory limitations"
         response = jsonify({'message': similar_text if similar_text else 'No similar message found'})
         
     except Exception as e:
